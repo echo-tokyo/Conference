@@ -4,12 +4,14 @@ import './shorts.css'
 import { Link } from 'react-router-dom'
 
 const Shorts = () => {
+	// воспроизведение видео при клике .bg-video (у тэга </video> есть атрибут muted, который проигрывает видео без звука. но если его убрать, автопроигрывания после рендеринга страницы не будет, поэтому я временно написал этот код)
 	useEffect(() => {
 		const video = document.querySelector('.bg-video');
 		document.querySelector('.shorts__main').addEventListener('click', function() {
 			video.play();
 		});
 	}, [])
+
 	return (
 		<>
 		<header className="shorts__header">

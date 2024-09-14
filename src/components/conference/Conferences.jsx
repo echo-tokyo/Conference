@@ -1,10 +1,28 @@
 import Nav from '../nav/Nav'
 import './conferences.css'
 import ConferenceItems from './conferenceItems/ConferenceItems'
+import { useState } from 'react'
+import NewConference from '../modals/newConference/NewConference'
+import BgStyles from '../../GlobalStyles'
 
 const Conferences = () => {
+	const [isModalOpen, setIsModalOpen] = useState(false)
+
+	// закрытие модалки кликом за ее пределами
+	document.addEventListener('click', e => {
+		if (e.target && !e.target.closest('.modal, .modalOpener')) {
+			setIsModalOpen(false)
+		}
+	})
+
 	return (
 		<>
+		{isModalOpen && (
+			<>
+			<NewConference />
+			<BgStyles />
+			</>
+		)}
 		<header className="wrapper__header">
 			<h1>Конференции</h1>
 		</header>
@@ -18,7 +36,7 @@ const Conferences = () => {
 			</div>
 		</div>
 		<div className="conferences-btn">
-			<button>Создать звонок</button>
+			<button onClick={() => setIsModalOpen(true)} className='modalOpener'>Создать конференцию</button>
 		</div>
 		<Nav />
 		</>
