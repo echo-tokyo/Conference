@@ -1,0 +1,53 @@
+.wrapper{
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.wrapper__header, .shorts__header{
+	height: 40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #ABA2A2;
+}
+.conferences, .article, .profile{
+	display: flex;
+	margin: 0 20px 0 20px;
+	flex-direction: column;
+	gap: 10px;
+	height: 70vh;
+	overflow: hidden;
+}
+.conferences__search, .article__search, .profile__search{
+	display: flex;
+	justify-content: space-between;
+	gap: 20px;
+}
+.conferences__items, .article__items, .profile__items{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	height: 100%;
+}
+.conferences__item, .article__item, .profile__item{
+	display: flex;
+	flex-direction: column;
+	background-color: #D1D1D1;
+	gap: 20px;
+	border-radius: 15px;
+	padding: 10px;
+}
+.conferences__info, .article__info{
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+.conferences__info img, .article__info img, .profile__item img, .shorts__item img{
+	width: 50px;
+	height: 50px;
+}
+.conferences-btn, .article-btn{
+	display: flex;
+	justify-content: center;
+}

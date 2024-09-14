@@ -1,0 +1,35 @@
+.shorts__main{
+	display: flex;
+	flex-direction: column;
+	height: 70vh;
+	margin: 0 20px 0 20px;
+	color: white;
+}
+.shorts__main-back{
+	width: fit-content;
+	color: white;
+}
+.bg-video{
+	position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+	height: 100%;
+	background-color: black;
+  z-index: -100;
+}
+.shorts__items{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	align-items: flex-end;
+	justify-content: center;
+	height: 100%;
+}
+.shorts__item{
+	width: fit-content;
+	display: flex;
+	gap: 5px;
+	flex-direction: column;
+	align-items: center;
+}

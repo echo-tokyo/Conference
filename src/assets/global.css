@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body, html{
+	height: 100vh;
+}
+/* Ресеты */
+a{
+	text-decoration: none;
+	color: black;
+}
+/* Шрифты */
+body h1{
+	font-size: 26px;
+	font-family: "Roboto", sans-serif;
+	font-weight: 500;
+}
+body h2{
+	font-size: 20px;
+	font-family: "Roboto", sans-serif;
+	font-weight: 500;
+}
+body h3{
+	font-size: 18px;
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+}
+body p{
+	font-size: 16px;
+	font-family: "Roboto", sans-serif;
+	font-weight: 300;
+}
+/* Кнопки */
+input[type='text']{
+	height: 40px;
+	border-radius: 15px;
+	border: 2px solid #D4D4D4;
+	padding: 0 0 0 15px;
+	width: 100%;
+	font-size: 18px;
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+}
+.search-inp{
+	display: none;
+}
+.search{
+	background-color: #D4D4D4;
+	border-radius: 15px;
+	width: 43.2px;
+	height: 43.2px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.conferences__search img, .article__search img{
+	width: 20px;
+	height: 20px;
+}
+.conferences__stats button, .conferences-btn button, .article-btn button{
+	background-color: #ABA2A2;
+	border: none;
+	border-radius: 15px;
+	padding: 10px;
+	font-size: 18px;
+	font-family: "Roboto", sans-serif;
+	font-weight: 400;
+}

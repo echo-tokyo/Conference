@@ -1,0 +1,9 @@
+.conferences__stats{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.conferences__desk h2{
+	word-wrap: none;
+	overflow: hidden;
+}
