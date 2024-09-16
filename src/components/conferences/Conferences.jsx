@@ -1,6 +1,6 @@
 import Nav from '../nav/Nav'
 import './conferences.css'
-import ConferenceItems from './conferenceItems/ConferenceItems'
+import ConferenceItems from './conferencesItems/ConferencesItems'
 import { useState } from 'react'
 import NewConference from '../modals/newConference/NewConference'
 import BgStyles from '../../GlobalStyles'

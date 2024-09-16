@@ -32,3 +32,6 @@
 .modal__wrapper input[type='submit']{
 	width: 100%;
 }
+.modal label{
+	display: flex;
+}

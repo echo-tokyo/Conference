@@ -1,0 +1,70 @@
+.conferencePage{
+	display: flex;
+	margin: 0 20px 0 20px;
+	flex-direction: column;
+	gap: 20px;
+}
+.conferencePage__main{
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+.conferencePage__item{
+	display: flex;
+	gap: 20px;
+}
+.conferencePage__video{
+	width: 100%;
+	height: 30vh;
+	background-color: black;
+	border-radius: 15px;
+}
+.conferencePage__desc{
+	display: flex;
+	gap: 20px;
+	justify-content: flex-end;
+}
+.conferencePage__desc-item{
+	text-align: end;
+}
+.ava{
+	width: 50px;
+	height: 50px;
+	background-color: black;
+	border-radius: 50%;
+}
+.msgList{
+	padding: 20px;
+	display: flex;
+	gap: 20px;
+	flex-direction: column;
+	overflow: hidden;
+	border: 1px solid black;
+	border-radius: 15px;
+}
+.msgList__msg {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+}
+.msgList__msg.selfMsg {
+  align-items: flex-end; 
+}
+.msgList__msg p{
+	margin-left: 10px;
+}
+.msgList__msg.selfMsg p{
+	margin-right: 10px;
+	margin-left: 0;
+}
+.msgList__msg-item{
+	background-color: gray;
+	border-radius: 15px;
+	padding: 10px;
+	width: fit-content;
+}
+.msgSend{
+	display: flex;
+	margin: 0 20px 0 20px;
+	gap: 20px;
+}
