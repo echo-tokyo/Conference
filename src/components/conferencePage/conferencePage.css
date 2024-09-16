@@ -1,10 +1,11 @@
-.conferencePage{
+/* .conferencePage__main{
 	display: flex;
 	margin: 0 20px 0 20px;
 	flex-direction: column;
 	gap: 20px;
-}
+} */
 .conferencePage__main{
+	margin: 0 20px 0 20px;
 	display: flex;
 	flex-direction: column;
 	gap: 10px;
@@ -15,7 +16,7 @@
 }
 .conferencePage__video{
 	width: 100%;
-	height: 30vh;
+	height: 25vh;
 	background-color: black;
 	border-radius: 15px;
 }
@@ -34,13 +35,15 @@
 	border-radius: 50%;
 }
 .msgList{
+	margin: 0 20px 0 20px;
 	padding: 20px;
 	display: flex;
 	gap: 20px;
 	flex-direction: column;
-	overflow: hidden;
+	overflow: scroll;
 	border: 1px solid black;
 	border-radius: 15px;
+	height: 40vh;
 }
 .msgList__msg {
   display: flex;
