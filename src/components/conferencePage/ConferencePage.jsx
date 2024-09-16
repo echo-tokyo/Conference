@@ -1,7 +1,21 @@
 import { Link } from 'react-router-dom'
 import './conferencePage.css'
+import { useEffect, useRef, useState } from 'react'
 
 const ConferencePage = () => {
+	const [msgs, setMsgs] = useState([])
+	const msgListRef = useRef(null)
+
+	useEffect(() => {
+		if (msgListRef.current) {
+      msgListRef.current.scrollTop = msgListRef.current.scrollHeight;
+    }
+	}, [msgs])
+
+	const newMessage = e => {
+		e.preventDefault()
+		setMsgs([...msgs, e.target.message.value])
+	}
 	return (
 		<>
 		<div className="wrapper__header">
@@ -18,26 +32,16 @@ const ConferencePage = () => {
 				<div className="ava"></div>
 			</div>
 		</div>
-		<div className="msgList">
-			<div className="msgList__msg">
-				<p>Имя</p>
-				<div className="msgList__msg-item"><h2>Сообщение</h2></div>
-			</div>
-			<div className="msgList__msg">
-				<p>Имя</p>
-				<div className="msgList__msg-item"><h2>Сообщение</h2></div>
-			</div>
-			<div className="msgList__msg">
-				<p>Имя</p>
-				<div className="msgList__msg-item"><h2>Сообщение</h2></div>
-			</div>
-			<div className="msgList__msg selfMsg">
-				<p>Имя</p>
-				<div className="msgList__msg-item"><h2>Сообщение</h2></div>
-			</div>
+		<div className="msgList" ref={msgListRef}>
+			{msgs.map((el, index) => (
+				<div className="msgList__msg selfMsg" key={index}>
+					<p>Имя</p>
+					<div className="msgList__msg-item" key={index}>{el}</div>
+				</div>
+			))}
 		</div>
-		<form className="msgSend">
-			<textarea type="text" />
+		<form className="msgSend" onSubmit={(e) => {newMessage(e)}}>
+			<textarea name='message' type="text" />
 			<input type="submit" />
 		</form>
 		</>
