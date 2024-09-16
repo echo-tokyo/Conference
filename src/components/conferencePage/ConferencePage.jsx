@@ -37,7 +37,7 @@ const ConferencePage = () => {
 			</div>
 		</div>
 		<form className="msgSend">
-			<input type="text" />
+			<textarea type="text" />
 			<input type="submit" />
 		</form>
 		</>
