@@ -6,7 +6,7 @@ const Nav = () => {
 		<nav className='nav'>
 			<div className="nav__items">
 				<div className="nav__item">
-					<Link to='/'><img src="../../../public/free-icon-font-users-alt-5529124 1.png" alt="" /></Link>
+					<Link to='/conferences'><img src="../../../public/free-icon-font-users-alt-5529124 1.png" alt="" /></Link>
 				</div>
 				<div className="nav__item">
 					<Link to='/article'><img src="../../../public/free-icon-font-graduation-cap-3914115 1.png" alt="" /></Link>
