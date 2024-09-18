@@ -19,7 +19,7 @@ const Router = () => {
 				<Route path='/article' element={<Article/>}/>
 				<Route path='/shorts' element={<Shorts/>}/>
 				<Route path='/profile' element={<Profile/>}/>
-				<Route path='/conference' element={<ConferencePage/>}/>
+				<Route path='/conference/:id' element={<ConferencePage/>}/>
 			</Routes>
 		</BrowserRouter>
 	)

@@ -4,11 +4,12 @@ import ConferenceItems from './conferencesItems/ConferencesItems'
 import { useState } from 'react'
 import NewConference from '../modals/newConference/NewConference'
 import BgStyles from '../../GlobalStyles'
+import { useSelector } from 'react-redux'
 
 const Conferences = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false)
+	const rooms = useSelector(state => state.rooms.roomList)
 
-	// закрытие модалки кликом за ее пределами
 	document.addEventListener('click', e => {
 		if (e.target && !e.target.closest('.modal, .modalOpener')) {
 			setIsModalOpen(false)
@@ -33,7 +34,7 @@ const Conferences = () => {
 					<label className='search' htmlFor="search"><img src="../../../public/find 1.svg" alt="" /><input id='search' type="submit" className='search-inp'/></label>
 				</form>
 				<div className="conferences__items">
-					<ConferenceItems />
+					{rooms.map(el => el.pubOrPriv === 'public' ? <ConferenceItems el={el} key={el.id}/> : null )}
 				</div>
 			</div>
 			<div className="conferences-btn">
