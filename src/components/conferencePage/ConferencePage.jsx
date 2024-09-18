@@ -1,21 +1,28 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom'
 import './conferencePage.css'
 import { useEffect, useRef, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { delRoom } from '../../store/rooms/rooms.slice'
 
 const ConferencePage = () => {
 	const nav = useNavigate()
+	const {id} = useParams()
 	const [msgs, setMsgs] = useState([])
 	const msgListRef = useRef(null)
 	const dispatch = useDispatch()
-	const currentId = window.location.href.substring(window.location.href.indexOf('conference/')+'conference/'.length)
+	const rooms = useSelector(state => state.rooms.roomList)
 
+	
 	useEffect(() => {
 		if (msgListRef.current) {
-      msgListRef.current.scrollTop = msgListRef.current.scrollHeight;
+			msgListRef.current.scrollTop = msgListRef.current.scrollHeight;
     }
 	}, [msgs])
+	
+	const conference = rooms.find(conf => conf.id === id)
+	if (!conference) {
+			return <Navigate to="/not-found" />
+	}
 
 	const newMessage = e => {
 		e.preventDefault()
@@ -24,7 +31,7 @@ const ConferencePage = () => {
 
 	const closeConference = () => {
 		localStorage.removeItem('ConfAdmin')
-		dispatch(delRoom(currentId))
+		dispatch(delRoom(id))
 		nav('/conferences')
 	}
 
@@ -39,7 +46,7 @@ const ConferencePage = () => {
 				<Link to='/'>Назад</Link>
 
 				{/* Проверка на админа. Если админ, то показывать кнопку завершения конфы, иначе кнопку выхода из конфы */}
-				{localStorage.getItem('ConfAdmin') === currentId ? <button onClick={() => closeConference()}>Завершить</button> : <Link to='/'>Назад</Link>}
+				{localStorage.getItem('ConfAdmin') === id ? <button onClick={() => closeConference()}>Завершить</button> : <Link to='/'>Назад</Link>}
 
 				<div className="conferencePage__video"></div>
 				<div className="conferencePage__desc">
