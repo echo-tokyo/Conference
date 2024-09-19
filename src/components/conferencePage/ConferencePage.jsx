@@ -11,6 +11,7 @@ const ConferencePage = () => {
 	const msgListRef = useRef(null)
 	const dispatch = useDispatch()
 	const rooms = useSelector(state => state.rooms.roomList)
+	const userData = useSelector(state => state.user.userData)
 	
 	useEffect(() => {
 		if (msgListRef.current) {
@@ -25,7 +26,7 @@ const ConferencePage = () => {
 
 	const newMessage = e => {
 		e.preventDefault()
-		setMsgs([...msgs, e.target.message.value])
+		setMsgs([...msgs, {msg: e.target.message.value, ami: true}])
 	}
 
 	const closeConference = () => {
@@ -57,12 +58,16 @@ const ConferencePage = () => {
 				</div>
 			</div>
 			<div className="msgList" ref={msgListRef}>
-				{msgs.map((el, index) => (
-					<div className="msgList__msg selfMsg" key={index}>
-						<p>Имя</p>
-						<div className="msgList__msg-item" key={index}>{el}</div>
-					</div>
-				))}
+				{msgs.length > 0 ? (
+					msgs.map((el, index) => (
+						<div className={`msgList__msg ${el.ami ? 'selfMsg' : ''}`} key={index}>
+							<p>{userData.name}</p>
+							<div className="msgList__msg-item" key={index}>{el.msg}</div>
+						</div>
+					))
+				) : (
+					<p>Сообщений нет</p>
+				)}
 			</div>
 			<form className="msgSend" onSubmit={(e) => {newMessage(e)}}>
 				<textarea name='message' type="text" />
