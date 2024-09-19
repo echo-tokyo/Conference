@@ -1,7 +1,10 @@
+import { useDispatch } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
+import { setUser } from '../../../store/user/user.slice'
 
 const Login = () => {
 	const nav = useNavigate()
+	const dispatch = useDispatch()
 
 	const login = e => {
 		const formData = {
@@ -9,7 +12,8 @@ const Login = () => {
 			password: e.target.password.value
 		}
 
-		console.log(formData)
+		dispatch(setUser({name: formData.name, email: formData.email}))
+
 		localStorage.setItem('token', 'token')
 		nav('/conferences')
 	}

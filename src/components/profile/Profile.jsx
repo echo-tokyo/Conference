@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
 import Nav from '../nav/Nav'
 import './profile.css'
+import { useSelector } from 'react-redux'
 
 const Profile = () => {
+	const userData = useSelector(state => state.user.userData)
+
 	return (
 		<div className="wrapper">
 			<header className="wrapper__header">
@@ -17,9 +20,9 @@ const Profile = () => {
 					<div className="profile__item">
 						<img src="../../../public/person 26.png" alt="" />
 						<div className="profile__desc">
-							<h1>Иванов Максим</h1>
+							<h1>{userData.name}</h1>
 							<p>11 лет</p>
-							<p>example@mail.ru</p>
+							<p>{userData.email}</p>
 						</div>
 					</div>
 				</div>

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 const roomsSlice = createSlice({
 	name: 'uuid',
 	initialState: {
-		roomList: [],
+		roomList: [{id: '1', name: 'Название', desc: 'Описание', pubOrPriv: 'public', organizer: 'Организатор'}],
 	},
 	reducers:{
 		setRooms: (state, action) => {

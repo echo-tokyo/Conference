@@ -11,7 +11,6 @@ const ConferencePage = () => {
 	const msgListRef = useRef(null)
 	const dispatch = useDispatch()
 	const rooms = useSelector(state => state.rooms.roomList)
-
 	
 	useEffect(() => {
 		if (msgListRef.current) {
@@ -51,8 +50,8 @@ const ConferencePage = () => {
 				<div className="conferencePage__video"></div>
 				<div className="conferencePage__desc">
 					<div className="conferencePage__desc-item">
-						<h2>Имя</h2>
-						<p>Описание</p>
+						<h2>{conference.organizer}</h2>
+						<p>{conference.desc}</p>
 					</div>
 					<div className="ava"></div>
 				</div>

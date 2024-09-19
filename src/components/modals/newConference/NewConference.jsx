@@ -2,12 +2,13 @@ import { useNavigate } from 'react-router-dom'
 import '../modals.css'
 import './newConference.css'
 import { v4 as uuidv4 } from 'uuid';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { setRooms } from '../../../store/rooms/rooms.slice'
 
 const NewConference = () => {
 	const dispatch = useDispatch()
 	const nav = useNavigate()
+	const userData = useSelector(state => state.user.userData)
 
 	const startConf = (e) => {
 		e.preventDefault()
@@ -22,7 +23,7 @@ const NewConference = () => {
 
 		localStorage.setItem('ConfAdmin', uuid)
 		nav(`/conference/${uuid}`)
-		dispatch(setRooms({id: uuid, name: formData.name, desc: formData.desc, pubOrPriv: formData.pubOrPriv}))
+		dispatch(setRooms({id: uuid, name: formData.name, desc: formData.desc, pubOrPriv: formData.pubOrPriv, organizer: userData.name}))
 	}
 
 	return (

@@ -10,7 +10,7 @@ const ConferencesItems = ({el}) => {
 				<img src="../../../public/person 26.png" alt="" />
 				<div className="conferences__desc">
 					<h2>{el.name}</h2>
-					<p>Проводит: {el.desc}</p>
+					<p>Описание: {el.desc}</p>
 					<p>Категория: отношения</p>
 				</div>
 			</div>
