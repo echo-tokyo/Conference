@@ -11,7 +11,7 @@ const roomsSlice = createSlice({
 		},
 		delRoom: (state, action) => {
 			state.roomList = state.roomList.filter(el => el.id !== action.payload)
-		}
+		},
 	}
 })
 

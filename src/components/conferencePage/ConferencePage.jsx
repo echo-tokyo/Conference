@@ -7,7 +7,7 @@ import { delRoom } from '../../store/rooms/rooms.slice'
 const ConferencePage = () => {
 	const nav = useNavigate()
 	const {id} = useParams()
-	const [msgs, setMsgs] = useState([])
+	const [msgs, setMsgs] = useState([{msg: 'Сообщение', user: 'Кто-то'}])
 	const msgListRef = useRef(null)
 	const dispatch = useDispatch()
 	const rooms = useSelector(state => state.rooms.roomList)
@@ -26,7 +26,8 @@ const ConferencePage = () => {
 
 	const newMessage = e => {
 		e.preventDefault()
-		setMsgs([...msgs, {msg: e.target.message.value, ami: true}])
+		setMsgs([...msgs, {msg: e.target.message.value, user: userData.name}])
+		e.target.querySelector('textarea').value = ''
 	}
 
 	const closeConference = () => {
@@ -60,8 +61,8 @@ const ConferencePage = () => {
 			<div className="msgList" ref={msgListRef}>
 				{msgs.length > 0 ? (
 					msgs.map((el, index) => (
-						<div className={`msgList__msg ${el.ami ? 'selfMsg' : ''}`} key={index}>
-							<p>{userData.name}</p>
+						<div className={`msgList__msg ${el.user === userData.name ? 'selfMsg' : ''}`} key={index}>
+							<p>{el.user === userData.name ? userData.name : el.user}</p>
 							<div className="msgList__msg-item" key={index}>{el.msg}</div>
 						</div>
 					))

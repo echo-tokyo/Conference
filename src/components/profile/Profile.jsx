@@ -14,7 +14,8 @@ const Profile = () => {
 			<div className="profile">
 				<div className="profile__search">
 					<div className="profile__search-item">Тема: светлая/темная</div>
-					<Link to='/'><div className="profile__search-item">Вперед</div></Link>
+					<Link to='/' onClick={() => {localStorage.removeItem('token')
+					}}><div className="profile__search-item">Выйти</div></Link>
 				</div>
 				<div className="profile__items">
 					<div className="profile__item">
