@@ -3,14 +3,24 @@ import './shorts.css'
 import { Link } from 'react-router-dom'
 import {Swiper, SwiperSlide} from 'swiper/react'
 import 'swiper/css'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 
 const Shorts = () => {
+	const [pause, setPause] = useState(true)
+
 	useEffect(() => {
+		if(pause === false) {
 			document.querySelector('.swiper-slide-active').children[0].play()
-	}, [])
+		} else{
+			document.querySelector('.swiper-slide-active').children[0].pause()
+		}
+	}, [pause])
+	
 	return (
 		<>
+		{pause && (
+			<img className='pause' src='../../../public/pause-circle-svgrepo-com.svg'></img>
+		)}
 		<div className="wrapper shorts-wrapper">
 			<header className="shorts__header">
 				<h1>Shorts</h1>
@@ -18,10 +28,7 @@ const Shorts = () => {
 			<Swiper className='mySwiper' direction='vertical' onSlidePrevTransitionEnd={() => {
 				document.querySelector('.swiper-slide-active').children[0].play()
 				document.querySelector('.swiper-slide-next').children[0].load()
-				if(document.querySelector('.swiper-slide').classList.length == 1) {
-					document.querySelector('.swiper-slide').children[0].load()
-					console.log('first')
-				}
+				
 				document.querySelectorAll('.swiper-slide').forEach((el) => {
 					if(el.classList.length == 1){
 						el.children[0].load()
@@ -30,13 +37,13 @@ const Shorts = () => {
 			}} onSlideNextTransitionEnd={() => {
 				document.querySelector('.swiper-slide-active').children[0].play()
 				document.querySelector('.swiper-slide-prev').children[0].load()
-
+				
 				document.querySelectorAll('.swiper-slide').forEach((el) => {
 					if(el.classList.length == 1){
 						el.children[0].load()
 					}
 				})
-			}}>
+			}} onClick={() => setPause(!pause)} onSlideChange={() => setPause(false)}>
 				<SwiperSlide><video className='bg-video' loop><source src='../../../public/Download (14).mp4' type='video/mp4'/></video></SwiperSlide>
 				<SwiperSlide><video className='bg-video' loop><source src='../../../public/Like_7330266907663915152.mp4' type='video/mp4'/></video></SwiperSlide>
 				<SwiperSlide><video className='bg-video' loop><source src='../../../public/Like_7393666118245324689.mp4' type='video/mp4'/></video></SwiperSlide>
