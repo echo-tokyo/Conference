@@ -2,20 +2,25 @@ import { useEffect } from 'react'
 import Nav from '../nav/Nav'
 import './shorts.css'
 import { Link } from 'react-router-dom'
+import {Swiper, SwiperSlide} from 'swiper/react'
+import 'swiper/css'
 
 const Shorts = () => {
 	useEffect(() => {
-		const video = document.querySelector('.bg-video');
-		document.querySelector('.shorts__main').addEventListener('click', function() {
-			video.play();
+		window.addEventListener('click', function() {
+			document.querySelector('.swiper-slide-active').children[0].play()
+			console.log('first')
 		});
 	}, [])
-
 	return (
 		<div className="wrapper">
 			<header className="shorts__header">
 				<h1>Shorts</h1>
 			</header>
+			<Swiper className='mySwiper' direction='vertical'>
+				<SwiperSlide><video className='bg-video' autoPlay loop><source src='../../../public/Download (14).mp4' type='video/mp4'/></video></SwiperSlide>
+				<SwiperSlide><video className='bg-video' autoPlay loop><source src='../../../public/Like_7330266907663915152.mp4' type='video/mp4'/></video></SwiperSlide>
+			</Swiper>
 			<div className="shorts__main">
 				<Link to='/' className='shorts__main-back'><p>Назад</p></Link>
 				<div className="shorts__items">
@@ -34,7 +39,6 @@ const Shorts = () => {
 				</div>
 			</div>
 			<Nav/>
-			<video className='bg-video' autoPlay loop><source src='../../../public/Download (14).mp4' type='video/mp4'/></video>
 		</div>
 	)
 }

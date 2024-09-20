@@ -1,4 +1,8 @@
 .shorts__main{
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 15%;
 	display: flex;
 	flex-direction: column;
 	height: 70vh;
@@ -6,17 +10,11 @@
 	color: white;
 }
 .shorts__main-back{
+	z-index: 100;
+	position: absolute;
+	left: 0;
 	width: fit-content;
 	color: white;
-}
-.bg-video{
-	position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-	height: 100%;
-	background-color: black;
-  z-index: -100;
 }
 .shorts__items{
 	display: flex;
@@ -27,9 +25,27 @@
 	height: 100%;
 }
 .shorts__item{
+	z-index: 100;
 	width: fit-content;
 	display: flex;
 	gap: 5px;
 	flex-direction: column;
 	align-items: center;
+}
+.nav{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 100;
+}
+body .swiper{
+	width: 100%;
+	height: 100%;
+}
+.swiper-slide .bg-video{
+	display: block;
+	width: 100%;
+	height: 100%;
+	background-color: black;
 }
