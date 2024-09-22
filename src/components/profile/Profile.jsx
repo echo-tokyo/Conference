@@ -1,10 +1,19 @@
 import { Link } from 'react-router-dom'
 import Nav from '../nav/Nav'
 import './profile.css'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { useEffect } from 'react'
+import { setShortsData } from '../../store/slide/slide.slice'
 
 const Profile = () => {
 	const userData = useSelector(state => state.user.userData)
+	const shorts = useSelector(state => state.slide.shortsData)
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		if(shorts.length > 0){dispatch(setShortsData([]))}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
 	return (
 		<div className="wrapper">

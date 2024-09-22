@@ -1,14 +1,22 @@
 import Nav from '../nav/Nav'
 import './conferences.css'
 import ConferenceItems from './conferencesItems/ConferencesItems'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import NewConference from '../modals/newConference/NewConference'
 import BgStyles from '../../GlobalStyles'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { setShortsData } from '../../store/slide/slide.slice'
 
 const Conferences = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false)
 	const rooms = useSelector(state => state.rooms.roomList)
+	const shorts = useSelector(state => state.slide.shortsData)
+	const dispatch = useDispatch()
+
+	useEffect(() => {
+		if(shorts.length > 0){dispatch(setShortsData([]))}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
 	document.addEventListener('click', e => {
 		if (e.target && !e.target.closest('.modal, .modalOpener')) {

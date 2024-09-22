@@ -8,31 +8,27 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addShortsData, setShortsData } from '../../store/slide/slide.slice'
 import { v4 as uuidv4 } from 'uuid';
 
-// TODO: нужно сделать очищение store при выходе из шортсов
-// TODO: при обновлении страницы диспатчить store двумя рандомными шортсами
-
 const Shorts = () => {
 	const {id} = useParams()
 	const nav = useNavigate()
 	const [pause, setPause] = useState(true)
 	const shortsList = useSelector(state => state.slide.shortsData)
 	const dispatch = useDispatch()
-
+	
 	// получение шортса по id из url + еще одного рандомного. проверка на переход по ссылке: если store пустой, значит переход был не по навбару, а по ссылке
-	if(shortsList.length == 0){
-		const shortsFromId = shortsList.filter(el => id === el.id)
-		dispatch(setShortsData([shortsFromId[0], {id: uuidv4(), video: '../../../public/Like_7330266907663915152.mp4'}]))
-	}
-
-	window.addEventListener('unload', () => {
-		console.log('first')
-		dispatch(setShortsData([{id: '1', desc: 'мой новый видос пиздец крутой', author: 'Автор', video: '../../../public/Like_7393666118245324689.mp4'}, {id: '2', desc: 'Залетайте на мои уроки', author: 'Автор23', video: '../../../public/Download (14).mp4'}]))
-	})
+	const currentShorts = shortsList.filter(el => id === el.id)
+	useEffect(() => {
+		if(shortsList.length == 0){
+			dispatch(setShortsData([currentShorts[0], {id: uuidv4(), video: '../../../public/Like_7330266907663915152.mp4'}]))
+			console.log('получение данных при переходе по ссылке или обновлении')
+		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
+	}, [])
 
 	useEffect(() => {
-		if(pause === false) {
+		if(pause === false && document.querySelector('.swiper-slide-active') !== null) {
 			document.querySelector('.swiper-slide-active').children[0].play()
-		} else{
+		} else if(document.querySelector('.swiper-slide-active') !== null){
 			document.querySelector('.swiper-slide-active').children[0].pause()
 		}
 	}, [pause])
@@ -72,22 +68,22 @@ const Shorts = () => {
 			}} onSlideChangeTransitionStart={() => {
 				nav(`/shorts/${document.querySelector('.swiper-slide-active').id}`)
 				}}>
-				{shortsList.map((el) => <SwiperSlide id={el.id} key={el.id}><video className='bg-video' loop><source  src={el.video} type='video/mp4'/></video></SwiperSlide>)}
+				{shortsList[0] !== undefined && shortsList.map((el) => <SwiperSlide id={el.id} key={el.id}><video className='bg-video' loop><source  src={el.video} type='video/mp4'/></video></SwiperSlide>)}
 			</Swiper>
 			<div className="shorts__main">
 				<Link to='/' className='shorts__main-back'><p>Назад</p></Link>
 				<div className="shorts__items">
 					<div className="shorts__item">
 						<img src="../../../public/image 1.svg" alt="" />
-						<p>228k</p>
+						<p>{currentShorts[0].likes}</p>
 					</div>
 					<div className="shorts__item">
 						<img src="../../../public/image 2.svg" alt="" />
-						<p>10k</p>
+						<p>{currentShorts[0].dislikes}</p>
 					</div>
 					<div className="shorts__item">
 						<img src="../../../public/image.svg" alt="" />
-						<p>1k</p>
+						<p>{currentShorts[0].comments}</p>
 					</div>
 				</div>
 			</div>
