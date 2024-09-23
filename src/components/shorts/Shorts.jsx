@@ -68,7 +68,7 @@ const Shorts = () => {
 			}} onSlideChangeTransitionStart={() => {
 				nav(`/shorts/${document.querySelector('.swiper-slide-active').id}`)
 				}}>
-				{shortsList[0] !== undefined && shortsList.map((el) => <SwiperSlide id={el.id} key={el.id}><video className='bg-video' loop><source  src={el.video} type='video/mp4'/></video></SwiperSlide>)}
+				{shortsList[0] !== undefined && shortsList.map((el) => <SwiperSlide id={el.id} key={el.id}><video className='bg-video' loop playsInline><source  src={el.video} type='video/mp4'/></video></SwiperSlide>)}
 			</Swiper>
 			<div className="shorts__main">
 				<Link to='/' className='shorts__main-back'><p>Назад</p></Link>

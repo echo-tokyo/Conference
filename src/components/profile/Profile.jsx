@@ -31,7 +31,6 @@ const Profile = () => {
 						<img src="../../../public/person 26.png" alt="" />
 						<div className="profile__desc">
 							<h1>{userData.name}</h1>
-							<p>11 лет</p>
 							<p>{userData.email}</p>
 						</div>
 					</div>
