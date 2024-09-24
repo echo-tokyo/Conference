@@ -60,11 +60,9 @@ const Profile = () => {
 					</div>
 				</div>
 			</div>
-			{/* <div className="slider"> */}
-				<Swiper className='mySwiper' slidesPerView={userData.shorts.lenght > 2 ? 3 : 1} spaceBetween={30} pagination={{dynamicBullets: true,}} modules={[Pagination]}>
+				<Swiper className='mySwiper profile__shorts' slidesPerView={userData.shorts.lenght > 2 ? 3 : 1} spaceBetween={30} pagination={{dynamicBullets: true,}} modules={[Pagination]}>
 						{userData.shorts.map(el => <SwiperSlide key={el.id}><video className='profile__shorts' autoPlay muted loop><source src={el.video} type='video/mp4'/></video></SwiperSlide>)}
 				</Swiper>
-			{/* </div> */}
 			<button className='modalOpener' onClick={() => setModalOpen(true)}>Добавить шортс</button>
 			<Nav />
 		</div>

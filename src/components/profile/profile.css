@@ -7,20 +7,9 @@
 	flex-direction: column;
 	gap: 10px;
 	overflow: hidden;
+	height: 30vh;
 }
-.profile__shorts{
-	display: block;
-	object-fit: contain;
-	width: 100%;
-	text-align: center;
-	height: 100%;
-}
-.swiper-slide{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-}
-.slider video{
-	width: auto;
+body .profile__shorts{
+	width: 70vw;
+	height: auto;
 }
