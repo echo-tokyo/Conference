@@ -6,10 +6,28 @@
 	margin: 0 20px 0 20px;
 	flex-direction: column;
 	gap: 10px;
-	overflow: hidden;
-	height: 30vh;
 }
 body .profile__shorts{
-	width: 70vw;
-	height: auto;
+	flex-direction: row;
+	flex-wrap: wrap;
+	overflow: scroll;
+	height: 50vh;
+	background-color: #ABA2A2;
+}
+.profile__shorts-item{
+	width: calc((100% - 10px - 4px * 2) / 2);
+	height: 100%;
+	background-color: black;
+	border: 2px solid white;
+	border-radius: 15px;
+}
+/* body .profile__shorts{
+	height: 40vh;
+	width: 100%;
+	background-color: black;
+} */
+.profile__btn{
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }

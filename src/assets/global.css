@@ -99,7 +99,7 @@ textarea{
 	width: 20px;
 	height: 20px;
 }
-.conferences__stats button, .conferences-btn button, .article-btn button, input[type='submit']{
+.conferences__stats button, .conferences-btn button, .article-btn button, input[type='submit'], .profile__btn-item{
 	cursor: pointer;
 	background-color: #ABA2A2;
 	border: none;

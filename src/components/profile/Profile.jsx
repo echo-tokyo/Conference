@@ -6,10 +6,6 @@ import { useEffect, useState } from 'react'
 import { setShortsData } from '../../store/slide/slide.slice'
 import NewShorts from '../modals/newShorts/NewShorts'
 import BgStyles from '../../GlobalStyles'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination } from 'swiper/modules';
-import 'swiper/css/pagination';
-import 'swiper/css';
 
 // TODO: сделать reducer для шортсов юзера
 
@@ -60,10 +56,14 @@ const Profile = () => {
 					</div>
 				</div>
 			</div>
-				<Swiper className='mySwiper profile__shorts' slidesPerView={userData.shorts.lenght > 2 ? 3 : 1} spaceBetween={30} pagination={{dynamicBullets: true,}} modules={[Pagination]}>
-						{userData.shorts.map(el => <SwiperSlide key={el.id}><video className='profile__shorts' autoPlay muted loop><source src={el.video} type='video/mp4'/></video></SwiperSlide>)}
-				</Swiper>
-			<button className='modalOpener' onClick={() => setModalOpen(true)}>Добавить шортс</button>
+			{/* <Swiper className='mySwiper profile__shorts' slidesPerView={userData.shorts.lenght > 2 ? 3 : 1} spaceBetween={30} pagination={{dynamicBullets: true,}} modules={[Pagination]}> */}
+			{/* </Swiper> */}
+			<div className="profile__shorts">
+				{userData.shorts.map(el =><video className='profile__shorts-item' autoPlay muted loop key={el.id}><source src={el.video} type='video/mp4'/></video>)}
+			</div>
+			<div className="profile__btn">
+				<button className='modalOpener profile__btn-item' onClick={() => setModalOpen(true)}>Добавить шортс</button>
+			</div>
 			<Nav />
 		</div>
 		</>
