@@ -14,7 +14,7 @@ const Shorts = () => {
 	const [pause, setPause] = useState(true)
 	const shortsList = useSelector(state => state.slide.shortsData)
 	const dispatch = useDispatch()
-	
+
 	// получение шортса по id из url + еще одного рандомного. проверка на переход по ссылке: если store пустой, значит переход был не по навбару, а по ссылке
 	const currentShorts = shortsList.filter(el => id === el.id)
 	useEffect(() => {
@@ -68,7 +68,7 @@ const Shorts = () => {
 			}} onSlideChangeTransitionStart={() => {
 				nav(`/shorts/${document.querySelector('.swiper-slide-active').id}`)
 				}}>
-				{shortsList[0] !== undefined && shortsList.map((el) => <SwiperSlide id={el.id} key={el.id}><video className='bg-video' loop playsInline><source  src={el.video} type='video/mp4'/></video></SwiperSlide>)}
+				{shortsList.map((el) => <SwiperSlide id={el.id} key={el.id}><video className='bg-video' loop playsInline><source  src={el.video} type='video/mp4'/></video></SwiperSlide>)}
 			</Swiper>
 			<div className="shorts__main">
 				<Link to='/' className='shorts__main-back'><p>Назад</p></Link>

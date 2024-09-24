@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom'
 import '../modals.css'
-import './newConference.css'
 import { v4 as uuidv4 } from 'uuid';
 import { useDispatch, useSelector } from 'react-redux'
 import { setRooms } from '../../../store/rooms/rooms.slice'
