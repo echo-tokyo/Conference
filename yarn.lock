@@ -889,6 +889,16 @@ gopd@^1.0.1:
   dependencies:
     get-intrinsic "^1.1.3"
 
+hammer@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.npmjs.org/hammer/-/hammer-0.0.5.tgz"
+  integrity sha512-mdGMKdrHiO1QVY7A+514ZtoaujioWjd8LT1DQpKMsgGke1JmmSvbywgbOWFRRmSfGupcSGra1N9fvFXNtwXb+Q==
+
+hammerjs@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.npmjs.org/hammerjs/-/hammerjs-2.0.8.tgz"
+  integrity sha512-tSQXBXS/MWQOn/RKckawJ61vvsDpCom87JgxiYdGwHdOa0ht0vzUWDlfioofFCRU0L+6NGDt6XzbgoJvZkMeRQ==
+
 has-bigints@^1.0.1, has-bigints@^1.0.2:
   version "1.0.2"
   resolved "https://registry.npmjs.org/has-bigints/-/has-bigints-1.0.2.tgz"

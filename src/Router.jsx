@@ -7,6 +7,7 @@ import Conferences from './components/conferences/Conferences'
 import App from './App'
 import Login from './components/authorization/login/Login'
 import ConferencePage from './components/conferencePage/ConferencePage'
+import UserShorts from './components/shorts/userShorts/UserShorts'
 
 const Router = () => {
 	return (
@@ -18,6 +19,7 @@ const Router = () => {
 				<Route path='/conferences' element={<Conferences/>}/>
 				<Route path='/article' element={<Article/>}/>
 				<Route path='/shorts/:id' element={<Shorts/>}/>
+				<Route path='/user-shorts/:id' element={<UserShorts/>}/>
 				<Route path='/profile' element={<Profile/>}/>
 				<Route path='/conference/:id' element={<ConferencePage/>}/>
 				<Route path='/not-found' element={

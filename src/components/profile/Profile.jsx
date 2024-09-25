@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Nav from '../nav/Nav'
 import './profile.css'
 import { useDispatch, useSelector } from 'react-redux'
@@ -7,9 +7,8 @@ import { setShortsData } from '../../store/slide/slide.slice'
 import NewShorts from '../modals/newShorts/NewShorts'
 import BgStyles from '../../GlobalStyles'
 
-// TODO: сделать reducer для шортсов юзера
-
 const Profile = () => {
+	const nav = useNavigate()
 	const userData = useSelector(state => state.user.userData)
 	const shorts = useSelector(state => state.slide.shortsData)
 	const [isModalOpen, setModalOpen] = useState(false)
@@ -25,8 +24,6 @@ const Profile = () => {
 		if(shorts.length > 0){dispatch(setShortsData([]))}
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
-
-	console.log(userData)
 
 	return (
 		<>
@@ -56,10 +53,8 @@ const Profile = () => {
 					</div>
 				</div>
 			</div>
-			{/* <Swiper className='mySwiper profile__shorts' slidesPerView={userData.shorts.lenght > 2 ? 3 : 1} spaceBetween={30} pagination={{dynamicBullets: true,}} modules={[Pagination]}> */}
-			{/* </Swiper> */}
 			<div className="profile__shorts">
-				{userData.shorts.map(el =><video className='profile__shorts-item' autoPlay muted loop key={el.id}><source src={el.video} type='video/mp4'/></video>)}
+				{userData.shorts.map(el =><video className='profile__shorts-item' autoPlay muted loop key={el.id} onClick={() => nav(`/user-shorts/${el.id}`)}><source src={el.video} type='video/mp4'/></video>)}
 			</div>
 			<div className="profile__btn">
 				<button className='modalOpener profile__btn-item' onClick={() => setModalOpen(true)}>Добавить шортс</button>

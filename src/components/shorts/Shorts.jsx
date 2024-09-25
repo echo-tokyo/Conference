@@ -25,6 +25,7 @@ const Shorts = () => {
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
+	// FIXME: такой же код в UserShorts
 	useEffect(() => {
 		if(pause === false && document.querySelector('.swiper-slide-active') !== null) {
 			document.querySelector('.swiper-slide-active').children[0].play()
@@ -42,7 +43,7 @@ const Shorts = () => {
 			<header className="shorts__header">
 				<h1>Shorts</h1>
 			</header>
-			<Swiper className='mySwiper' direction='vertical' onSlidePrevTransitionEnd={() => {
+			<Swiper className='mySwiper' direction='vertical' grabCursor='true' onSlidePrevTransitionEnd={() => {
 				document.querySelector('.swiper-slide-active').children[0].play()
 				document.querySelector('.swiper-slide-next').children[0].load()
 				

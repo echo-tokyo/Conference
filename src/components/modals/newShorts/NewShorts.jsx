@@ -14,7 +14,7 @@ const NewShorts = () => {
 		const reader = new FileReader()
 
 		const formData = {
-			id: Date.now(),
+			id: String(Date.now()),
 			author: user.name,
 			likes: '',
 			dislikes: '',
