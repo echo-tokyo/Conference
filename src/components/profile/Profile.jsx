@@ -45,7 +45,7 @@ const Profile = () => {
 				</div>
 				<div className="profile__items">
 					<div className="profile__item">
-						<img src="../../../public/person 26.png" alt="" />
+						<img src={userData.ava} alt="" />
 						<div className="profile__desc">
 							<h1>{userData.name}</h1>
 							<p>{userData.email}</p>

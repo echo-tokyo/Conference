@@ -15,7 +15,7 @@ const Shorts = () => {
 	const shortsList = useSelector(state => state.slide.shortsData)
 	const dispatch = useDispatch()
 
-	// получение шортса по id из url + еще одного рандомного. проверка на переход по ссылке: если store пустой, значит переход был не по навбару, а по ссылке
+	// запрос на получение шортса по id из url + еще одного рандомного. проверка на переход по ссылке: если store пустой, значит переход был не по навбару, а по ссылке
 	const currentShorts = shortsList.filter(el => id === el.id)
 	useEffect(() => {
 		if(shortsList.length == 0){
@@ -33,7 +33,7 @@ const Shorts = () => {
 			document.querySelector('.swiper-slide-active').children[0].pause()
 		}
 	}, [pause])
-
+	
 	return (
 		<>
 		{pause && (

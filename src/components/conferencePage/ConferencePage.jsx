@@ -13,6 +13,7 @@ const ConferencePage = () => {
 	const rooms = useSelector(state => state.rooms.roomList)
 	const userData = useSelector(state => state.user.userData)
 	
+	// FIXME: такой же useEffect в comments.jsx
 	useEffect(() => {
 		if (msgListRef.current) {
 			msgListRef.current.scrollTop = msgListRef.current.scrollHeight;
@@ -24,6 +25,7 @@ const ConferencePage = () => {
 			return <Navigate to="/not-found" />
 	}
 
+	// FIXME: такая же функция в comments.jsx
 	const newMessage = e => {
 		e.preventDefault()
 		setMsgs([...msgs, {msg: e.target.message.value, user: userData.name}])
@@ -62,8 +64,8 @@ const ConferencePage = () => {
 				{msgs.length > 0 ? (
 					msgs.map((el, index) => (
 						<div className={`msgList__msg ${el.user === userData.name ? 'selfMsg' : ''}`} key={index}>
-							<p>{el.user === userData.name ? userData.name : el.user}</p>
-							<div className="msgList__msg-item" key={index}>{el.msg}</div>
+							<p>{el.user}</p>
+							<div className="msgList__msg-item">{el.msg}</div>
 						</div>
 					))
 				) : (

@@ -4,16 +4,15 @@ import { Link, useParams } from 'react-router-dom'
 import Nav from '../../nav/Nav'
 import './userShorts.css'
 import '../shorts.css'
+import Comments from '../comments/Comments'
 
 const UserShorts = () => {
 	const {id} = useParams()
 	const [pause, setPause] = useState(true)
+	const [comments, setComments] = useState(false)
 	const userShorts = useSelector(state => state.user.userData.shorts)
 
-	console.log(userShorts)
-
 	const currentShorts = userShorts.filter(el => id === el.id)
-	console.log(currentShorts)
 
 	useEffect(() => {
 		if(pause === false && document.querySelector('.bg-video') !== null) {
@@ -27,6 +26,9 @@ const UserShorts = () => {
 		<>
 		{pause && (
 			<img className='pause' src='../../../public/pause-circle-svgrepo-com.svg'></img>
+		)}
+		{comments && (
+			<Comments comments={comments} setComments={setComments}/>
 		)}
 		<div className="wrapper shorts-wrapper">
 			<header className="shorts__header">
@@ -46,7 +48,7 @@ const UserShorts = () => {
 						<img src="../../../public/image 2.svg" alt="" />
 						<p>{currentShorts[0].dislikes}</p>
 					</div>
-					<div className="shorts__item">
+					<div className="shorts__item" onClick={()=>setComments(true)}>
 						<img src="../../../public/image.svg" alt="" />
 						<p>{currentShorts[0].comments}</p>
 					</div>
